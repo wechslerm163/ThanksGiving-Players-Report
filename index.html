@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanksgiving Football Player Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f5e9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff914d;
+            color: white;
+        }
+        h1 {
+            margin: 0;
+        }
+        .player-list {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .player {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #ffdab9;
+            cursor: pointer;
+        }
+        .player:hover {
+            background-color: #ffc89e;
+        }
+        .info {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f3f3f3;
+            border-left: 3px solid #ff914d;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Thanksgiving Football Player Report</h1>
+        <p>Click on a player to learn more about them!</p>
+    </header>
+
+    <div class="player-list">
+        <div class="player" onclick="toggleInfo(this)">
+            Elias Bekdas
+            <div class="info">
+                <p><strong>Nickname:</strong> Turkish Legacy</p>
+                <p><strong>Hometown:</strong> Turkey</p>
+                <p><strong>Handiness:</strong> Right</p>
+                <p><strong>College:</strong> Fairfield</p>
+                <p><strong>Skillset:</strong> Can catch football pretty well and can eat quite a lot of food for his size.</p>
+            </div>
+        </div>
+        <div class="player" onclick="toggleInfo(this)">
+            Andrew Spano
+            <div class="info">
+                <p><strong>Nickname:</strong> Blondey</p>
+                <p><strong>Hometown:</strong> The Edge</p>
+                <p><strong>Handiness:</strong> Right</p>
+                <p><strong>College:</strong> TCNJ</p>
+                <p><strong>Skillset:</strong> Literally plays college football and is a pledge lmao.</p>
+            </div>
+        </div>
+        <div class="player" onclick="toggleInfo(this)">
+            Ethan Suede
+            <div class="info">
+                <p><strong>Nickname:</strong> Shaquille O'Neal</p>
+                <p><strong>Hometown:</strong> Nigeria</p>
+                <p><strong>Handiness:</strong> Probably right</p>
+                <p><strong>College:</strong> Montclair</p>
+                <p><strong>Skillset:</strong> Tall, lengthy, and unique.</p>
+            </div>
+        </div>
+        <div class="player" onclick="toggleInfo(this)">
+            Michael Wechsler
+            <div class="info">
+                <p><strong>Nickname:</strong> Retired Jew</p>
+                <p><strong>Hometown:</strong> The Edge</p>
+                <p><strong>Handiness:</strong> Right</p>
+                <p><strong>College:</strong> The Ohio State</p>
+                <p><strong>Skillset:</strong> Tall, absolute stud muffin, gorgeous, can throw very far.</p>
+            </div>
+        </div>
+        <div class="player" onclick="toggleInfo(this)">
+            Ellis Park
+            <div class="info">
+                <p><strong>Nickname:</strong> CHIGGGGYYYYYYYY</p>
+                <p><strong>Hometown:</strong> River Edge near the Highway</p>
+                <p><strong>Handiness:</strong> Right</p>
+                <p><strong>College:</strong> Trade School</p>
+                <p><strong>Skillset:</strong> Best player in this draft as he brings up skillset of people around him and morale, he could pipe any of your moms.</p>
+            </div>
+        </div>
+        <div class="player" onclick="toggleInfo(this)">
+            George Cabany
+            <div class="info">
+                <p><strong>Nickname:</strong> Minors</p>
+                <p><strong>Hometown:</strong> Apartments in the Edge</p>
+                <p><strong>Handiness:</strong> Hefty Lefty</p>
+                <p><strong>College:</strong> De Sales</p>
+                <p><strong>Skillset:</strong> Fond supporter of M4L, runs track, and is very fast.</p>
+            </div>
+        </div>
+        <div class="player" onclick="toggleInfo(this)">
+            Devin Armen
+            <div class="info">
+                <p><strong>Nickname:</strong> Sexy and Lefty</p>
+                <p><strong>Hometown:</strong> Roosevelt part of The Edge</p>
+                <p><strong>Handiness:</strong> Left</p>
+                <p><strong>College:</strong> Bergen</p>
+                <p><strong>Skillset:</strong> Speedster, great golfer, and loves to caddy.</p>
+            </div>
+        </div>
+        <div class="player" onclick="toggleInfo(this)">
+            Cole Haviland
+            <div class="info">
+                <p><strong>Nickname:</strong> GRUNKLES</p>
+                <p><strong>Hometown:</strong> Jays Nutsack</p>
+                <p><strong>College:</strong> Sacred Heart</p>
+                <p><strong>Skillset:</strong> Can consume more caffeine than a horse and can deadlift 500 (ladies watch out).</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleInfo(player) {
+            const info = player.querySelector('.info');
+            if (info.style.display === 'block') {
+                info.style.display = 'none';
+            } else {
+                info.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
