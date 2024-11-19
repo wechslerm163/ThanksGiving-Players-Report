@@ -3,150 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanksgiving Football Player Report</title>
+    <title>Thanksgiving Teams, Players, and Odds</title>
     <style>
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f7f5e9;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 20px;
+        }
+
+        .team {
+            flex: 1;
+            max-width: 45%;
+            margin: 0 20px;
+            background-color: #007bff; /* Default color for Team Nick */
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .team-right {
+            background-color: #dc3545; /* Default color for Team Scott */
+        }
+
+        .team h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 100%;
+            z-index: 10;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .dropdown ul {
+            list-style: none;
             margin: 0;
             padding: 0;
-            color: #333;
         }
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #ff914d;
-            color: white;
-        }
-        h1 {
-            margin: 0;
-        }
-        .player-list {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 10px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-        .player {
-            padding: 10px;
+
+        .dropdown ul li {
             margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background-color: #ffdab9;
             cursor: pointer;
         }
-        .player:hover {
-            background-color: #ffc89e;
+
+        .dropdown ul li:hover {
+            background-color: #f1f1f1;
         }
-        .info {
-            display: none;
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #f3f3f3;
-            border-left: 3px solid #ff914d;
-            border-radius: 4px;
+
+        .team:hover .dropdown {
+            display: block;
+        }
+
+        #details {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #details h2 {
+            margin: 0 0 10px;
+        }
+
+        #details p {
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>Thanksgiving Football Player Report</h1>
-        <p>Click on a player to learn more about them!</p>
+        <h1>Thanksgiving Teams, Players, and Odds</h1>
     </header>
 
-    <div class="player-list">
-        <div class="player" onclick="toggleInfo(this)">
-            Elias Bekdas
-            <div class="info">
-                <p><strong>Nickname:</strong> Turkish Legacy</p>
-                <p><strong>Hometown:</strong> Turkey</p>
-                <p><strong>Handiness:</strong> Right</p>
-                <p><strong>College:</strong> Fairfield</p>
-                <p><strong>Skillset:</strong> Can catch football pretty well and can eat quite a lot of food for his size.</p>
+    <div class="container">
+        <!-- Team Nick -->
+        <div class="team team-left">
+            <h2>Team Nick</h2>
+            <div class="dropdown">
+                <ul>
+                    <li onclick="showDetails('Nick Sybel', 'the car mechanic', 'Right', 'Trade School with Chig', 'some people call him a whale I call him beautiful')">Nick Sybel</li>
+                    <li onclick="showDetails('Elias Bekdas', 'Turkey', 'Right', 'Fairfield', 'can catch football pretty well and can eat quite a lot of food for his size')">Elias Bekdas</li>
+                    <li onclick="showDetails('Ellis Park', 'River Edge near the Highway', 'Right', 'Trade School', 'best player in this draft as he bring up skillset of people around him and morale, he could pipe any of your moms')">Ellis Park</li>
+                    <li onclick="showDetails('Logan Kanestrin', 'The Edge (Roosevelt lmao)', 'Right', 'The Bergen University', 'fast as frick boyyyyyyyyyy and can catch very well')">Logan Kanestrin</li>
+                    <li onclick="showDetails('Michael Wechsler', 'The Edge', 'Right', 'The Ohio State', 'tall, absolute stud muffin, gorgeous, can throw very far')">Michael Wechsler</li>
+                    <li onclick="showDetails('George Cabany', 'Apartments in the edge', 'Hefty Lefty', 'De Sales', 'he is a fond supporter of M4L he runs track and is very fast')">George Cabany</li>
+                </ul>
             </div>
         </div>
-        <div class="player" onclick="toggleInfo(this)">
-            Andrew Spano
-            <div class="info">
-                <p><strong>Nickname:</strong> Blondey</p>
-                <p><strong>Hometown:</strong> The Edge</p>
-                <p><strong>Handiness:</strong> Right</p>
-                <p><strong>College:</strong> TCNJ</p>
-                <p><strong>Skillset:</strong> Literally plays college football and is a pledge lmao.</p>
-            </div>
-        </div>
-        <div class="player" onclick="toggleInfo(this)">
-            Ethan Suede
-            <div class="info">
-                <p><strong>Nickname:</strong> Shaquille O'Neal</p>
-                <p><strong>Hometown:</strong> Nigeria</p>
-                <p><strong>Handiness:</strong> Probably right</p>
-                <p><strong>College:</strong> Montclair</p>
-                <p><strong>Skillset:</strong> Tall, lengthy, and unique.</p>
-            </div>
-        </div>
-        <div class="player" onclick="toggleInfo(this)">
-            Michael Wechsler
-            <div class="info">
-                <p><strong>Nickname:</strong> Retired Jew</p>
-                <p><strong>Hometown:</strong> The Edge</p>
-                <p><strong>Handiness:</strong> Right</p>
-                <p><strong>College:</strong> The Ohio State</p>
-                <p><strong>Skillset:</strong> Tall, absolute stud muffin, gorgeous, can throw very far.</p>
-            </div>
-        </div>
-        <div class="player" onclick="toggleInfo(this)">
-            Ellis Park
-            <div class="info">
-                <p><strong>Nickname:</strong> CHIGGGGYYYYYYYY</p>
-                <p><strong>Hometown:</strong> River Edge near the Highway</p>
-                <p><strong>Handiness:</strong> Right</p>
-                <p><strong>College:</strong> Trade School</p>
-                <p><strong>Skillset:</strong> Best player in this draft as he brings up skillset of people around him and morale, he could pipe any of your moms.</p>
-            </div>
-        </div>
-        <div class="player" onclick="toggleInfo(this)">
-            George Cabany
-            <div class="info">
-                <p><strong>Nickname:</strong> Minors</p>
-                <p><strong>Hometown:</strong> Apartments in the Edge</p>
-                <p><strong>Handiness:</strong> Hefty Lefty</p>
-                <p><strong>College:</strong> De Sales</p>
-                <p><strong>Skillset:</strong> Fond supporter of M4L, runs track, and is very fast.</p>
-            </div>
-        </div>
-        <div class="player" onclick="toggleInfo(this)">
-            Devin Armen
-            <div class="info">
-                <p><strong>Nickname:</strong> Sexy and Lefty</p>
-                <p><strong>Hometown:</strong> Roosevelt part of The Edge</p>
-                <p><strong>Handiness:</strong> Left</p>
-                <p><strong>College:</strong> Bergen</p>
-                <p><strong>Skillset:</strong> Speedster, great golfer, and loves to caddy.</p>
-            </div>
-        </div>
-        <div class="player" onclick="toggleInfo(this)">
-            Cole Haviland
-            <div class="info">
-                <p><strong>Nickname:</strong> GRUNKLES</p>
-                <p><strong>Hometown:</strong> Jays Nutsack</p>
-                <p><strong>College:</strong> Sacred Heart</p>
-                <p><strong>Skillset:</strong> Can consume more caffeine than a horse and can deadlift 500 (ladies watch out).</p>
+
+        <!-- Team Scott -->
+        <div class="team team-right">
+            <h2>Team Scott</h2>
+            <div class="dropdown">
+                <ul>
+                    <li onclick="showDetails('Scott Sybel', 'Blue Car', 'Left (WTH)', 'Blue Car University', 'strong guy and drives a blue car')">Scott Sybel</li>
+                    <li onclick="showDetails('Andrew Spano', 'The Edge', 'Right', 'TCNJ', 'literally plays college football and is a pledge lmao')">Andrew Spano</li>
+                    <li onclick="showDetails('Will Ginch', 'somewhere in The Edge', 'Right', 'plays lacrosse in college', 'like really really speedy and is fast as a college lacrosse player because he is one')">Will Ginch</li>
+                    <li onclick="showDetails('Ethan Suede', 'Nigeria', 'probably right', 'Montclair', 'tall, lengthy, and unique')">Ethan Suede</li>
+                    <li onclick="showDetails('Solomon Kim', 'Korea', 'Right', 'Korea University', 'Somehow always ends up in Korea')">Solomon Kim</li>
+                    <li onclick="showDetails('Cole Haviland', 'Jays Nutsack', 'Right', 'Sacred Heart', 'can consume more caffeine than a horse and can deadlift 500 (ladies watch out)')">Cole Haviland</li>
+                </ul>
             </div>
         </div>
     </div>
 
+    <div id="details">
+        <h2>Click on a player's name to see their details!</h2>
+    </div>
+
     <script>
-        function toggleInfo(player) {
-            const info = player.querySelector('.info');
-            if (info.style.display === 'block') {
-                info.style.display = 'none';
-            } else {
-                info.style.display = 'block';
-            }
+        function showDetails(name, hometown, handiness, college, skillset) {
+            const details = document.getElementById('details');
+            details.innerHTML = `
+                <h2>${name}</h2>
+                <p><strong>Hometown:</strong> ${hometown}</p>
+                <p><strong>Handiness:</strong> ${handiness}</p>
+                <p><strong>College:</strong> ${college}</p>
+                <p><strong>Skillset:</strong> ${skillset}</p>
+            `;
         }
     </script>
+
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanksgiving Teams, Players, and Odds</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .odds-section {
+            margin: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .odds-section h2 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .odds-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .player-box {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            width: 150px;
+            transition: background-color 0.3s ease;
+        }
+
+        .player-box:hover {
+            background-color: #0056b3;
+        }
+
+        .calculator {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .calculator input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .calculator button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .calculator button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Thanksgiving Teams, Players, and Odds</h1>
+    </header>
+
+    <!-- First Touchdown Section -->
+    <div class="odds-section">
+        <h2>First Touchdown</h2>
+        <div class="odds-grid">
+            <div class="player-box" onclick="selectPlayer('Elias Bekdas', -175)">Elias Bekdas: -175</div>
+            <div class="player-box" onclick="selectPlayer('Andrew Spano', -175)">Andrew Spano: -175</div>
+            <div class="player-box" onclick="selectPlayer('Nick Sybel', -100)">Nick Sybel: -100</div>
+            <div class="player-box" onclick="selectPlayer('Scott Sybel', -100)">Scott Sybel: -100</div>
+            <div class="player-box" onclick="selectPlayer('Ellis Park', 100)">Ellis Park: +100</div>
+            <div class="player-box" onclick="selectPlayer('Logan Kanestrin', 100)">Logan Kanestrin: +100</div>
+            <div class="player-box" onclick="selectPlayer('Will Ginch', 100)">Will Ginch: +100</div>
+            <div class="player-box" onclick="selectPlayer('Cole Haviland', 150)">Cole Haviland: +150</div>
+            <div class="player-box" onclick="selectPlayer('George Cabany', 150)">George Cabany: +150</div>
+            <div class="player-box" onclick="selectPlayer('Solomon Kim', 175)">Solomon Kim: +175</div>
+            <div class="player-box" onclick="selectPlayer('Michael Wechsler', 175)">Michael Wechsler: +175</div>
+            <div class="player-box" onclick="selectPlayer('Ethan Suede', 'N/A')">Ethan Suede: N/A</div>
+        </div>
+
+        <!-- Calculator -->
+        <div class="calculator">
+            <input type="number" id="betAmount" value="100" placeholder="Enter your bet amount">
+            <p id="selectedPlayer" style="margin: 10px 0; font-weight: bold;">No player selected</p>
+            <button onclick="calculateWinnings()">Calculate Winnings</button>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        let selectedPlayer = null;
+        let selectedOdds = null;
+
+        function selectPlayer(playerName, odds) {
+            selectedPlayer = playerName;
+            selectedOdds = odds;
+            const selectedPlayerElement = document.getElementById('selectedPlayer');
+            selectedPlayerElement.textContent = `Selected Player: ${playerName}, Odds: ${odds}`;
+        }
+
+        function calculateWinnings() {
+            const betAmount = parseFloat(document.getElementById('betAmount').value);
+            const resultElement = document.getElementById('result');
+
+            if (!selectedPlayer || selectedOdds === null) {
+                resultElement.textContent = "Please select a player to calculate winnings.";
+                return;
+            }
+
+            if (isNaN(betAmount) || betAmount <= 0) {
+                resultElement.textContent = "Please enter a valid bet amount.";
+                return;
+            }
+
+            let winnings = 0;
+
+            if (selectedOdds === 'N/A') {
+                resultElement.textContent = `Ethan Suede is unavailable for betting.`;
+                return;
+            } else if (selectedOdds > 0) {
+                // Positive odds calculation
+                winnings = betAmount * (selectedOdds / 100) + betAmount;
+            } else {
+                // Negative odds calculation
+                winnings = betAmount * (100 / Math.abs(selectedOdds)) + betAmount;
+            }
+
+            resultElement.textContent = `If your bet hits, you would win $${winnings.toFixed(2)}.`;
+        }
+    </script>
+
+</body>
+</html>
+ <!-- First Anytime Touchdown Section -->
+    <div class="odds-section">
+        <h2>Anytime Touchdown</h2>
+        <div class="odds-grid">
+            <div class="player-box" onclick="selectPlayer('Elias Bekdas', -2000)">Elias Bekdas: -2000</div>
+            <div class="player-box" onclick="selectPlayer('Andrew Spano', -2200)">Andrew Spano: -2200</div>
+            <div class="player-box" onclick="selectPlayer('Nick Sybel', -500)">Nick Sybel: -500</div>
+            <div class="player-box" onclick="selectPlayer('Scott Sybel', -500)">Scott Sybel: -500</div>
+            <div class="player-box" onclick="selectPlayer('Ellis Park', -100)">Ellis Park: -100</div>
+            <div class="player-box" onclick="selectPlayer('Logan Kanestrin', -400)">Logan Kanestrin: -400</div>
+            <div class="player-box" onclick="selectPlayer('Will Ginch', -400)">Will Ginch: -400</div>
+            <div class="player-box" onclick="selectPlayer('Cole Haviland', 100)">Cole Haviland: +100</div>
+            <div class="player-box" onclick="selectPlayer('George Cabany', 100)">George Cabany: +100</div>
+            <div class="player-box" onclick="selectPlayer('Solomon Kim', 100)">Solomon Kim: +100</div>
+            <div class="player-box" onclick="selectPlayer('Michael Wechsler', -175)">Michael Wechsler: -175</div>
+            <div class="player-box" onclick="selectPlayer('Ethan Suede', 'N/A')">Ethan Suede: N/A</div>
+        </div>
+</body>
+</html>
+ <!-- Need a waterbreak first Section -->
+    <div class="odds-section">
+        <h2>Need a waterbreak first</h2>
+        <div class="odds-grid">
+            <div class="player-box" onclick="selectPlayer('Elias Bekdas', +250)">Elias Bekdas: +250</div>
+            <div class="player-box" onclick="selectPlayer('Andrew Spano', +250)">Andrew Spano: +250</div>
+            <div class="player-box" onclick="selectPlayer('Nick Sybel', -200)">Nick Sybel: -200</div>
+            <div class="player-box" onclick="selectPlayer('Scott Sybel', -100)">Scott Sybel: -100</div>
+            <div class="player-box" onclick="selectPlayer('Ellis Park', +1000)">Ellis Park: +1000</div>
+            <div class="player-box" onclick="selectPlayer('Logan Kanestrin', +400)">Logan Kanestrin: +400</div>
+            <div class="player-box" onclick="selectPlayer('Will Ginch', +400)">Will Ginch: +400</div>
+            <div class="player-box" onclick="selectPlayer('Cole Haviland', +100)">Cole Haviland: +100</div>
+            <div class="player-box" onclick="selectPlayer('George Cabany', -100)">George Cabany: -100</div>
+            <div class="player-box" onclick="selectPlayer('Solomon Kim', -100)">Solomon Kim: -100</div>
+            <div class="player-box" onclick="selectPlayer('Michael Wechsler', +175)">Michael Wechsler: +175</div>
+            <div class="player-box" onclick="selectPlayer('Ethan Suede', -3500)">Ethan Suede: -3500</div>
+        </div>
+
+      
+
